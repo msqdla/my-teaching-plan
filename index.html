@@ -1,139 +1,58 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>双约翰识别图表（9:16竖屏版）</title>
+<meta charset="UTF-8">
+<title>HTML 版迷你 Excel</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
-  :root{
-    --bg: #0b0f14;
-    --card: #121923;
-    --muted: #9fb0c7;
-    --text: #e8f0ff;
-    --accent: #9fd3ff;
-    --border: #233041;
-    --chip: #1b2431;
-  }
-  body{
-    margin:0; padding:0;
-    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, "Noto Sans CJK SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
-    background:var(--bg); color:var(--text);
-    display:flex; justify-content:center;
-  }
-  .wrap{
-    width:100%; max-width:720px; 
-    padding:20px; 
-  }
-  header{ text-align:center; margin-bottom:20px; }
-  h1{ font-size:2rem; margin:10px 0; }
-  .sub{ color:var(--muted); font-size:1rem; }
-  .chip{
-    display:inline-block; padding:4px 10px;
-    background:var(--chip); border:1px solid var(--border);
-    border-radius:999px; font-size:.9rem; margin-bottom:8px; color:var(--accent);
-  }
-  .card{
-    background: linear-gradient(180deg, rgba(23,33,46,.9), rgba(10,14,19,.9));
-    border:1px solid var(--border); border-radius:18px;
-    padding:20px; margin-bottom:20px;
-  }
-  .title{ margin-bottom:12px; }
-  .title h2{ margin:0; font-size:1.4rem; }
-  .badge{ font-size:.9rem; color:#cfe8ff; }
-  .meta{ color:var(--muted); font-size:.95rem; margin-bottom:12px; }
-  .pill{
-    display:inline-block; margin:4px 6px 4px 0;
-    padding:6px 10px; background:#1b2431; border-radius:999px; font-size:.85rem;
-  }
-  .section{ margin-top:16px; }
-  .section h3{ margin:0 0 8px; font-size:1.1rem; }
-  .verse{
-    background:#0f1722; border:1px solid var(--border);
-    border-radius:12px; padding:10px 12px; margin:10px 0;
-  }
-  .en{ font-style:italic; font-size:.95rem; }
-  .cn{ margin-top:4px; font-size:.95rem; color:#d7e6ff; }
-  .list{ margin:8px 0 0 18px; }
-  .list li{ margin:6px 0; font-size:.95rem; }
-  footer{
-    margin-top:10px; text-align:center; font-size:.8rem; color:var(--muted);
-  }
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Microsoft YaHei",sans-serif;margin:0;padding:1rem;background:#f7f7f7}
+  h2{margin:.2em 0 .5em}#tb{border-collapse:collapse;width:100%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.1)}
+  #tb th,#tb td{border:1px solid #d0d0d0;padding:4px 6px;min-width:90px;height:28px}
+  #tb th{background:#fafafa;text-align:center;font-weight:600}
+  td input{border:0;outline:0;width:100%;padding:2px;font-size:14px}
+  .btn{margin:.3rem .2rem;padding:6px 12px;border:0;border-radius:3px;background:#007bff;color:#fff;cursor:pointer}
+  .btn:hover{background:#0056b3}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div class="chip">Iconography • Christian Art</div>
-    <h1>双约翰识别图表</h1>
-    <div class="sub">John the Baptist vs. John the Evangelist</div>
-  </header>
+<h2>HTML 版迷你 Excel</h2>
+<button class="btn" onclick="addRow()">增行</button>
+<button class="btn" onclick="addCol()">增列</button>
+<button class="btn" onclick="delRow()">删行</button>
+<button class="btn" onclick="delCol()">删列</button>
+<button class="btn" onclick="exportXlsx()">导出 .xlsx</button>
 
-  <!-- 施洗者圣约翰 -->
-  <section class="card">
-    <div class="title"><h2>施洗者圣约翰 <span class="badge">John the Baptist</span></h2></div>
-    <div class="meta">识别要点：小羊（Agnus Dei）、十字杖、卷轴“Ecce Agnus Dei”、旷野背景</div>
-    <span class="pill">羔羊 = 基督牺牲</span>
-    <span class="pill">约旦河施洗</span>
+<table id="tb"></table>
 
-    <div class="section">
-      <h3>英文原文 & 翻译</h3>
-      <div class="verse">
-        <div class="en">“Behold the Lamb of God, which taketh away the sin of the world.” (John 1:29 KJV)</div>
-        <div class="cn">“看哪，神的羔羊，除去世人罪孽的！”（和合本）</div>
-      </div>
-    </div>
-    <div class="section">
-      <h3>课堂提示</h3>
-      <ul class="list">
-        <li>常抱或指向小羊 → 象征耶稣为“神的羔羊”。</li>
-        <li>衣着粗粝，寓意悔改与禁欲。</li>
-      </ul>
-    </div>
-  </section>
+<!-- 依赖：SheetJS 用于导出 -->
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script>
+const cols=["A","B","C","D","E","F","G"];          // 初始列
+let data=[["姓名","语文","数学","英语"],["张三",90,95,88],["李四",85,92,78]]; // 初始数据
 
-  <!-- 传道者圣约翰 -->
-  <section class="card">
-    <div class="title"><h2>传道者圣约翰 <span class="badge">John the Evangelist</span></h2></div>
-    <div class="meta">识别要点：杯与蛇、书卷/羽毛笔、鹰、年轻无须</div>
-    <span class="pill">杯中蛇 = 信仰胜邪</span>
-    <span class="pill">鹰 = 神学高度</span>
+function render(){
+  const tb=document.getElementById('tb');
+  tb.innerHTML="";
+  // 表头
+  const hRow=document.createElement('tr');
+  hRow.innerHTML='<th></th>'+cols.map(c=>`<th>${c}</th>`).join('');
+  tb.appendChild(hRow);
+  // 数据行
+  data.forEach((row,r)=>{
+    const tr=document.createElement('tr');
+    tr.innerHTML=`<th>${r+1}</th>`+row.map((cell,c)=>{
+      return`<td><input value="${cell}" onchange="data[${r}][${c}]=this.value"></td>`
+    }).join('');
+    tb.appendChild(tr);
+  });
+}
+function addRow(){data.push(Array(cols.length).fill(""));render()}
+function delRow(){if(data.length>1)data.pop();render()}
+function addCol(){cols.push(String.fromCharCode(65+cols.length));data.forEach(r=>r.push(""));render()}
+function delCol(){if(cols.length>1){cols.pop();data.forEach(r=>r.pop())}render()}
 
-    <div class="section">
-      <h3>英文原文 & 翻译</h3>
-      <div class="verse">
-        <div class="en">“In the beginning was the Word, and the Word was with God, and the Word was God.” (John 1:1 KJV)</div>
-        <div class="cn">“太初有道，道与神同在，道就是神。”（和合本）</div>
-      </div>
-    </div>
-    <div class="section">
-      <h3>课堂提示</h3>
-      <ul class="list">
-        <li>杯中蛇的故事：敌人下毒 → 约翰祷告 → 毒化为蛇。</li>
-        <li>象征战胜邪恶，信仰的力量。</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 对照总结 -->
-  <section class="card">
-    <div class="title"><h2>对照总结</h2></div>
-    <ul class="list">
-      <li><strong>施洗者</strong> → 羔羊 = 牺牲与救赎</li>
-      <li><strong>传道者</strong> → 杯中蛇 = 战胜邪恶</li>
-    </ul>
-    <div class="section">
-      <h3>课堂活动</h3>
-      <ul class="list">
-        <li>辨认练习：展示名画，判断是谁。</li>
-        <li>朗读原文：一人读英文，一人读中文。</li>
-      </ul>
-    </div>
-  </section>
-
-  <footer>
-    经文：KJV 与《圣经和合本》；图像学符号为传统约定俗成。<br/>
-    适配 9:16 竖屏，课堂投影或移动端友好。
-  </footer>
-</div>
-</body>
-</html>
+function exportXlsx(){
+  const ws=XLSX.utils.aoa_to_sheet(data);
+  const wb=XLSX.utils.book_new();
+  XLSX.utils.book_append_sheet(wb,ws,"Sheet1");
+  XLSX.writeFile(wb,"HTML_Excel_导出.x
