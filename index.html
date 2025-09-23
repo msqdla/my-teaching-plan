@@ -1,139 +1,188 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>双约翰识别图表（9:16竖屏版）</title>
-<style>
-  :root{
-    --bg: #0b0f14;
-    --card: #121923;
-    --muted: #9fb0c7;
-    --text: #e8f0ff;
-    --accent: #9fd3ff;
-    --border: #233041;
-    --chip: #1b2431;
-  }
-  body{
-    margin:0; padding:0;
-    font-family: ui-sans-serif, -apple-system, "Segoe UI", Roboto, "Noto Sans CJK SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
-    background:var(--bg); color:var(--text);
-    display:flex; justify-content:center;
-  }
-  .wrap{
-    width:100%; max-width:720px; 
-    padding:20px; 
-  }
-  header{ text-align:center; margin-bottom:20px; }
-  h1{ font-size:2rem; margin:10px 0; }
-  .sub{ color:var(--muted); font-size:1rem; }
-  .chip{
-    display:inline-block; padding:4px 10px;
-    background:var(--chip); border:1px solid var(--border);
-    border-radius:999px; font-size:.9rem; margin-bottom:8px; color:var(--accent);
-  }
-  .card{
-    background: linear-gradient(180deg, rgba(23,33,46,.9), rgba(10,14,19,.9));
-    border:1px solid var(--border); border-radius:18px;
-    padding:20px; margin-bottom:20px;
-  }
-  .title{ margin-bottom:12px; }
-  .title h2{ margin:0; font-size:1.4rem; }
-  .badge{ font-size:.9rem; color:#cfe8ff; }
-  .meta{ color:var(--muted); font-size:.95rem; margin-bottom:12px; }
-  .pill{
-    display:inline-block; margin:4px 6px 4px 0;
-    padding:6px 10px; background:#1b2431; border-radius:999px; font-size:.85rem;
-  }
-  .section{ margin-top:16px; }
-  .section h3{ margin:0 0 8px; font-size:1.1rem; }
-  .verse{
-    background:#0f1722; border:1px solid var(--border);
-    border-radius:12px; padding:10px 12px; margin:10px 0;
-  }
-  .en{ font-style:italic; font-size:.95rem; }
-  .cn{ margin-top:4px; font-size:.95rem; color:#d7e6ff; }
-  .list{ margin:8px 0 0 18px; }
-  .list li{ margin:6px 0; font-size:.95rem; }
-  footer{
-    margin-top:10px; text-align:center; font-size:.8rem; color:var(--muted);
-  }
-</style>
+    <meta charset="UTF-8">
+    <title>百鸟朝凤1970</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <style>
+        :root {
+            --bg: #fdf6e3;
+            --text: #2d2d2d;
+            --accent: #b58900;
+            --shadow: rgba(0, 0, 0, .2);
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            overflow: hidden;
+        }
+        section {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 10vmin;
+            text-align: center;
+            display: none;
+        }
+        section.active {
+            display: flex;
+        }
+        h1 {
+            font-size: 8vmin;
+            margin-bottom: 2vmin;
+            letter-spacing: .1em;
+        }
+        h2 {
+            font-size: 5vmin;
+            margin-bottom: 3vmin;
+            color: var(--accent);
+        }
+        p {
+            font-size: 3.5vmin;
+            line-height: 1.8;
+            max-width: 80vmin;
+        }
+        .small {
+            font-size: 2.5vmin;
+            margin-top: 4vmin;
+            opacity: .7;
+        }
+        nav {
+            position: fixed;
+            bottom: 3vmin;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 2vmin;
+            z-index: 10;
+        }
+        button {
+            padding: 1.5vmin 3vmin;
+            font-size: 2.5vmin;
+            border: none;
+            background: var(--accent);
+            color: #fff;
+            border-radius: 2vmin;
+            cursor: pointer;
+            box-shadow: 0 .5vmin 1vmin var(--shadow);
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 10vmin;
+            }
+            p {
+                font-size: 4.5vmin;
+            }
+        }
+    </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <div class="chip">Iconography • Christian Art</div>
-    <h1>双约翰识别图表</h1>
-    <div class="sub">John the Baptist vs. John the Evangelist</div>
-  </header>
 
-  <!-- 施洗者圣约翰 -->
-  <section class="card">
-    <div class="title"><h2>施洗者圣约翰 <span class="badge">John the Baptist</span></h2></div>
-    <div class="meta">识别要点：小羊（Agnus Dei）、十字杖、卷轴“Ecce Agnus Dei”、旷野背景</div>
-    <span class="pill">羔羊 = 基督牺牲</span>
-    <span class="pill">约旦河施洗</span>
+<section class="active">
+    <h1>百鸟朝凤</h1>
+    <h2>十八岁的青春心事</h2>
+    <p>1970年邵氏电影《那个不多情》插曲</p>
+    <p class="small">复古港风 · 幻灯片</p>
+</section>
 
-    <div class="section">
-      <h3>英文原文 & 翻译</h3>
-      <div class="verse">
-        <div class="en">“Behold the Lamb of God, which taketh away the sin of the world.” (John 1:29 KJV)</div>
-        <div class="cn">“看哪，神的羔羊，除去世人罪孽的！”（和合本）</div>
-      </div>
-    </div>
-    <div class="section">
-      <h3>课堂提示</h3>
-      <ul class="list">
-        <li>常抱或指向小羊 → 象征耶稣为“神的羔羊”。</li>
-        <li>衣着粗粝，寓意悔改与禁欲。</li>
-      </ul>
-    </div>
-  </section>
+<section>
+    <h2>基本信息</h2>
+    <p>歌名：百鸟朝凤<br>
+    演唱：蓓蕾、徐玉<br>
+    作曲：严华<br>
+    年代：1970年<br>
+    风格：港式小调、轻快俏皮</p>
+</section>
 
-  <!-- 传道者圣约翰 -->
-  <section class="card">
-    <div class="title"><h2>传道者圣约翰 <span class="badge">John the Evangelist</span></h2></div>
-    <div class="meta">识别要点：杯与蛇、书卷/羽毛笔、鹰、年轻无须</div>
-    <span class="pill">杯中蛇 = 信仰胜邪</span>
-    <span class="pill">鹰 = 神学高度</span>
+<section>
+    <h2>歌词节选</h2>
+    <p>十八岁生日在今朝，<br>
+    珍珠的心里太奇妙，<br>
+    一会儿自己偷偷笑，<br>
+    一会儿对我大声叫。</p>
+</section>
 
-    <div class="section">
-      <h3>英文原文 & 翻译</h3>
-      <div class="verse">
-        <div class="en">“In the beginning was the Word, and the Word was with God, and the Word was God.” (John 1:1 KJV)</div>
-        <div class="cn">“太初有道，道与神同在，道就是神。”（和合本）</div>
-      </div>
-    </div>
-    <div class="section">
-      <h3>课堂提示</h3>
-      <ul class="list">
-        <li>杯中蛇的故事：敌人下毒 → 约翰祷告 → 毒化为蛇。</li>
-        <li>象征战胜邪恶，信仰的力量。</li>
-      </ul>
-    </div>
-  </section>
+<section>
+    <h2>歌词故事</h2>
+    <p>珍珠的十八岁，在烦恼什么？<br>
+    春心萌动、情绪起伏；<br>
+    朋友的“瞎胡闹”与理想的“真情”；<br>
+    读书 vs 恋爱的青春抉择。</p>
+</section>
 
-  <!-- 对照总结 -->
-  <section class="card">
-    <div class="title"><h2>对照总结</h2></div>
-    <ul class="list">
-      <li><strong>施洗者</strong> → 羔羊 = 牺牲与救赎</li>
-      <li><strong>传道者</strong> → 杯中蛇 = 战胜邪恶</li>
-    </ul>
-    <div class="section">
-      <h3>课堂活动</h3>
-      <ul class="list">
-        <li>辨认练习：展示名画，判断是谁。</li>
-        <li>朗读原文：一人读英文，一人读中文。</li>
-      </ul>
-    </div>
-  </section>
+<section>
+    <h2>时代背景</h2>
+    <p>1970年代香港流行文化<br>
+    邵氏电影与歌舞插曲的黄金时代<br>
+    少女形象：天真、俏皮、带点叛逆</p>
+</section>
 
-  <footer>
-    经文：KJV 与《圣经和合本》；图像学符号为传统约定俗成。<br/>
-    适配 9:16 竖屏，课堂投影或移动端友好。
-  </footer>
-</div>
+<section>
+    <h2>现代重生</h2>
+    <p>法国音乐人 Onra 采样《百鸟朝凤》<br>
+    创作出热门单曲《The Anthem》<br>
+    让“十八岁生日在今朝”再次翻红</p>
+</section>
+
+<section>
+    <h2>总结</h2>
+    <p>它唱出了每一个十八岁少女的<br>
+    “心里一团乱糟糟”<br>
+    用幽默的方式，讲出了成长的烦恼<br>
+    穿越时代，依然让人会心一笑</p>
+</section>
+
+<section>
+    <h2>谢谢观看</h2>
+    <p>彩蛋：去音乐平台搜索<br>
+    《百鸟朝凤》原版 & Onra《The Anthem》<br>
+    感受跨越 50 年的采样魔力</p>
+</section>
+
+<nav>
+    <button id="prevBtn" onclick="changeSlide(-1)">上一页</button>
+    <button id="nextBtn" onclick="changeSlide(1)">下一页</button>
+</nav>
+
+<script>
+    const slides = document.querySelectorAll('section');
+    let current = 0;
+
+    function showSlide(index) {
+        slides.forEach(s => s.classList.remove('active'));
+        slides[index].classList.add('active');
+        document.getElementById('prevBtn').disabled = index === 0;
+        document.getElementById('nextBtn').disabled = index === slides.length - 1;
+    }
+
+    function changeSlide(direction) {
+        current += direction;
+        if (current < 0) current = 0;
+        if (current >= slides.length) current = slides.length - 1;
+        showSlide(current);
+    }
+
+    // 键盘左右箭头
+    document.addEventListener('keydown', e => {
+        if (e.key === 'ArrowLeft') changeSlide(-1);
+        if (e.key === 'ArrowRight') changeSlide(1);
+    });
+
+    // 初始状态
+    showSlide(current);
+</script>
 </body>
 </html>
